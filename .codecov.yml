@@ -1,0 +1,6 @@
+codecov:
+  token: f86055fa-e5c5-401c-bf62-8759bb77d7b8  # Use your Codecov token here
+  upload:
+    file: "coverage.xml"  # Specify the file to upload
+    flags: django  # This is an optional tag for the upload
+    name: "django-testing-examples"  # This is optional, but can help to identify your project
