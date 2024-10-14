@@ -10,8 +10,6 @@ addons:
 env:
   - DJANGO_VERSION=1.11
   - DJANGO_VERSION=2.0
-  codecov: 
- token: 90118f4d-8711-4e82-94e4-594a1bcade32
 
 # Omit this if you do not use selenium
 before_install:
@@ -19,6 +17,13 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.21.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
+codecov: 
+ token: 90118f4d-8711-4e82-94e4-594a1bcade32
+
+ script:
+  - coverage run --source=myapp manage.py test  # Ensure the tests are running with coverage
+  - coverage xml  # This generates a coverage.xml report
+  - codecov  # This uploads the coverage report to Codecov
 
 
 install:
