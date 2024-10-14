@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.urls import path
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, add_comment_to_post
 
-from . import views
-
-app_name = 'myapp'
 urlpatterns = [
-    url(r'^mypath/$', views.MyView.as_view(), name='myview'),
-    url(r'^create/$', views.MyView.as_view(), name='mycreateview'),
-    url(r'^(?P<pk>[0-9]+)/update/$', views.MyUpdateView.as_view(), name='myupdateview'),
-
+    path('', PostListView.as_view(), name='post-list'),
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/edit/', PostUpdateView.as_view(), name='post-edit'),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('post/<int:pk>/comment/', add_comment_to_post, name='add-comment'),
 ]
