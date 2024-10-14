@@ -10,6 +10,8 @@ addons:
 env:
   - DJANGO_VERSION=1.11
   - DJANGO_VERSION=2.0
+  codecov: 
+ token: 90118f4d-8711-4e82-94e4-594a1bcade32
 
 # Omit this if you do not use selenium
 before_install:
